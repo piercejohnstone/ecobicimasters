@@ -1,0 +1,264 @@
+Sub ecobici_macro()
+'
+' ecobici_macro Macro
+'
+' Keyboard Shortcut: Ctrl+m
+
+                 Range("A1").Select
+    ActiveCell.FormulaR1C1 = "Gender"
+    Range("B1").Select
+    ActiveCell.FormulaR1C1 = "Age"
+    Range("C1").Select
+    ActiveCell.FormulaR1C1 = "Bike"
+    Range("D1").Select
+    ActiveCell.FormulaR1C1 = "Withdrawal Station"
+    Range("E1").Select
+    ActiveCell.FormulaR1C1 = "Withdrawal date"
+    Range("F1").Select
+    ActiveCell.FormulaR1C1 = "Withdrawal time"
+    Columns("G:G").Select
+    Selection.Insert Shift:=xlToRight, CopyOrigin:=xlFormatFromLeftOrAbove
+    Columns("F:F").Select
+    Columns("F:F").EntireColumn.AutoFit
+    Columns("E:E").Select
+    Columns("E:E").EntireColumn.AutoFit
+    Range("G1").Select
+    ActiveCell.FormulaR1C1 = "Withdrawal Date and time"
+    Columns("G:G").Select
+    Columns("G:G").EntireColumn.AutoFit
+    Columns("H:H").Select
+    Columns("H:H").EntireColumn.AutoFit
+    Range("H1").Select
+    ActiveCell.FormulaR1C1 = "Arrival station"
+    Range("G11:G12").Select
+    Range("G12").Activate
+    ActiveWindow.ScrollColumn = 2
+    ActiveWindow.ScrollColumn = 3
+    ActiveWindow.ScrollColumn = 4
+    Range("I1").Select
+    ActiveCell.FormulaR1C1 = "Arrival date"
+    Range("J1").Select
+    ActiveCell.FormulaR1C1 = "Arrival time"
+    Range("K1").Select
+    Columns("J:J").EntireColumn.AutoFit
+    ActiveCell.FormulaR1C1 = "Arrival date and time"
+    Range("K4").Select
+    Columns("K:K").EntireColumn.AutoFit
+    ActiveWindow.ScrollColumn = 5
+    Range("L1").Select
+    ActiveCell.FormulaR1C1 = "Trip length"
+    Range("L12").Select
+    Columns("L:L").EntireColumn.AutoFit
+    ActiveWindow.ScrollColumn = 4
+    ActiveWindow.ScrollColumn = 3
+    ActiveWindow.ScrollColumn = 2
+    ActiveWindow.ScrollColumn = 1
+    Range("A1:L1").Select
+    With Selection.Interior
+        .Pattern = xlSolid
+        .PatternColorIndex = xlAutomatic
+        .ThemeColor = xlThemeColorAccent1
+        .TintAndShade = 0.599993896298105
+        .PatternTintAndShade = 0
+    End With
+    Range("N11").Select
+    ActiveCell.FormulaR1C1 = _
+        "CONCAT(TEXT(E2,""dd/mm/yyyy"")&"" ""&TEXT(F2,""hh:mm:ss""))"
+    Range("G2").Select
+    ActiveCell.FormulaR1C1 = _
+        "=CONCAT(TEXT(RC[-2],""dd/mm/yyyy"")&"" ""&TEXT(RC[-1],""hh:mm:ss""))"
+    Range("G2").Select
+    Selection.AutoFill Destination:=Range("G2:G3")
+    Range("G2:G3").Select
+    Range("N13").Select
+    ActiveCell.FormulaR1C1 = _
+        "CONCAT(TEXT(I2,""dd/mm/yyyy"")&"" ""&TEXT(J2,""hh:mm:ss""))"
+    Range("K2").Select
+    ActiveCell.FormulaR1C1 = _
+        "=CONCAT(TEXT(RC[-2],""dd/mm/yyyy"")&"" ""&TEXT(RC[-1],""hh:mm:ss""))"
+    Range("K2").Select
+    Selection.AutoFill Destination:=Range("K2:K3")
+    Range("K2:K3").Select
+    Columns("I:I").Select
+    Selection.EntireColumn.Hidden = True
+    Columns("J:J").Select
+    Selection.EntireColumn.Hidden = True
+    Columns("E:E").Select
+    Selection.EntireColumn.Hidden = True
+    Columns("F:F").Select
+    Selection.EntireColumn.Hidden = True
+    Range("N15").Select
+    ActiveCell.FormulaR1C1 = "(K2-G2)*1440"
+    Range("L2").Select
+    ActiveCell.FormulaR1C1 = "=(RC[-1]-RC[-5])*1440"
+    Range("L2").Select
+    Selection.NumberFormat = "0.00"
+    Selection.AutoFill Destination:=Range("L2:L3")
+    Range("L2:L3").Select
+    Range("O25").Select
+Range("N11:N15").Select
+    Selection.ClearContents
+    Columns("D:D").ColumnWidth = 20.27
+    Range("G3").Select
+
+    Selection.AutoFill Destination:=Range("G3:G" & Range("A" & Rows.Count).End(xlUp).Row)
+    Range(Selection, Selection.End(xlDown)).Select
+
+    Range("K3").Select
+    
+Selection.AutoFill Destination:=Range("K3:K" & Range("A" & Rows.Count).End(xlUp).Row)
+    Range(Selection, Selection.End(xlDown)).Select
+
+
+    Range("L3").Select
+    
+Selection.AutoFill Destination:=Range("L3:L" & Range("A" & Rows.Count).End(xlUp).Row)
+    Range(Selection, Selection.End(xlDown)).Select
+    
+    
+    
+    Range("O1").Select
+    ActiveCell.FormulaR1C1 = "Trip count"
+    Range("O2").Select
+    ActiveCell.FormulaR1C1 = "=COUNT(C2)"
+    Range("P1").Select
+    ActiveCell.FormulaR1C1 = "Trip count trips 1<x<180"
+    Range("P2").Select
+    ActiveCell.FormulaR1C1 = "=COUNTIFS(C[-4],""<180"",C[-4],"">1"")"
+    Range("Q1").Select
+    ActiveCell.FormulaR1C1 = "Trip count F"
+    Range("Q2").Select
+    ActiveCell.FormulaR1C1 = "=COUNTIFS(C[-16],""F"",C[-5],""<180"",C[-5],"">1"")"
+    Range("R1").Select
+    ActiveCell.FormulaR1C1 = "Trip count M"
+    Range("R2").Select
+    ActiveCell.FormulaR1C1 = "=COUNTIFS(C[-17],""M"",C[-6],""<180"",C[-6],"">1"")"
+    Range("S1").Select
+    ActiveCell.FormulaR1C1 = "Trip count age 16-24"
+    Range("S2").Select
+    ActiveCell.FormulaR1C1 = "=COUNTIFS(C2,""<25"",C[-7],""<180"",C[-7],"">1"")"
+    Range("T1").Select
+    ActiveCell.FormulaR1C1 = "Trip count age 25-34"
+    Range("T2").Select
+    ActiveCell.FormulaR1C1 = _
+        "=COUNTIFS(C2,""<34"",C[-8],""<180"",C[-8],"">1"")-RC[-1]"
+    Range("U1").Select
+    ActiveCell.FormulaR1C1 = "Trip count age 35-45"
+    Range("U2").Select
+    ActiveCell.FormulaR1C1 = _
+        "=COUNTIFS(C2,""<46"",C[-9],""<180"",C[-9],"">1"")-RC[-2]-RC[-1]"
+    Range("U3").Select
+    ActiveWindow.ScrollColumn = 12
+    ActiveWindow.ScrollColumn = 13
+    ActiveWindow.ScrollColumn = 14
+    ActiveWindow.ScrollColumn = 15
+    ActiveWindow.ScrollColumn = 16
+    ActiveWindow.ScrollColumn = 17
+    ActiveWindow.ScrollColumn = 18
+    ActiveWindow.ScrollColumn = 19
+    ActiveWindow.ScrollColumn = 20
+    ActiveWindow.ScrollColumn = 21
+    Range("V1").Select
+    ActiveCell.FormulaR1C1 = "Trip count 46-55"
+    Range("V2").Select
+    ActiveCell.FormulaR1C1 = _
+        "=COUNTIFS(C2,""<56"",C[-10],""<180"",C[-10],"">1"")-RC[-3]-RC[-2]-RC[-1]"
+    Range("W1").Select
+    ActiveCell.FormulaR1C1 = "Trip count age 56+"
+    Range("W2").Select
+    ActiveCell.FormulaR1C1 = "=COUNTIFS(C2,"">55"",C[-11],""<180"",C[-11],"">1"")"
+    Range("X1").Select
+    ActiveCell.FormulaR1C1 = "Sum trip time"
+    Range("X2").Select
+    ActiveCell.FormulaR1C1 = "=SUMIFS(C[-12], C[-12],""<180"",C[-12],"">1"")"
+    Range("Y1").Select
+    ActiveCell.FormulaR1C1 = "Sum trip time F"
+    Range("Y2").Select
+    ActiveCell.FormulaR1C1 = _
+        "=SUMIFS(C[-13],C[-24],""F"",C[-13],""<180"",C[-13],"">1"")"
+    Range("Z1").Select
+    ActiveCell.FormulaR1C1 = "Sum trip time M"
+    Range("Z2").Select
+    ActiveCell.FormulaR1C1 = _
+        "=SUMIFS(C[-14],C[-25],""M"",C[-14],""<180"",C[-14],"">1"")"
+    Range("AA1").Select
+    ActiveCell.FormulaR1C1 = "Sum trip time age 16-24"
+    Range("AA2").Select
+    ActiveCell.FormulaR1C1 = _
+        "=SUMIFS(C[-15],C2,""<25"",C[-15],""<180"",C[-15],"">1"")"
+    Range("AB1").Select
+    ActiveCell.FormulaR1C1 = "Sum trip time age 25-34"
+    Range("AB2").Select
+    ActiveCell.FormulaR1C1 = _
+        "=SUMIFS(C[-16],C2,""<35"",C[-16],""<180"",C[-16],"">1"")-RC[-1]"
+    Range("AC1").Select
+    ActiveCell.FormulaR1C1 = "Sum trip time age 35-45"
+    Range("AC2").Select
+    ActiveCell.FormulaR1C1 = _
+        "=SUMIFS(C[-17],C2,""<46"",C[-17],""<180"",C[-17],"">1"")-RC[-2]-RC[-1]"
+    Range("AD1").Select
+    ActiveCell.FormulaR1C1 = "Sum trip time age 46-55"
+    Range("AD2").Select
+    ActiveCell.FormulaR1C1 = _
+        "=SUMIFS(C[-18],C2,""<56"",C[-18],""<180"",C[-18],"">1"")-RC[-3]-RC[-2]-RC[-1]"
+    Range("AD3").Select
+    ActiveWindow.ScrollColumn = 22
+    ActiveWindow.ScrollColumn = 23
+    ActiveWindow.ScrollColumn = 24
+    ActiveWindow.ScrollColumn = 25
+    ActiveWindow.ScrollColumn = 26
+    ActiveWindow.ScrollColumn = 27
+    ActiveWindow.ScrollColumn = 28
+    ActiveWindow.ScrollColumn = 29
+    Range("AE1").Select
+    ActiveCell.FormulaR1C1 = "Sum trip time age 56+"
+    Range("AE2").Select
+    ActiveCell.FormulaR1C1 = _
+        "=SUMIFS(C[-19],C2,"">55"",C[-19],""<180"",C[-19],"">1"")"
+    Range("AF1").Select
+    ActiveCell.FormulaR1C1 = "Average trip time"
+    Range("AF2").Select
+    ActiveCell.FormulaR1C1 = "=AVERAGEIFS(C[-20],C[-20],""<180"",C[-20],"">1"")"
+    Range("AG1").Select
+    ActiveCell.FormulaR1C1 = "Average trip time F"
+    Range("AG2").Select
+    ActiveCell.FormulaR1C1 = _
+        "=AVERAGEIFS(C[-21],C[-32],""F"",C[-21],""<180"",C[-21],"">1"")"
+    Range("AH1").Select
+    ActiveCell.FormulaR1C1 = "Average trip time M"
+    Range("AH2").Select
+    ActiveCell.FormulaR1C1 = _
+        "=AVERAGEIFS(C[-22],C[-33],""M"",C[-22],""<180"",C[-22],"">1"")"
+    Range("AI1").Select
+    ActiveCell.FormulaR1C1 = "Average trip time age 18-24"
+    Range("AI2").Select
+    ActiveCell.FormulaR1C1 = _
+        "=AVERAGEIFS(C12,C2,""<25"",C2,"">10"",C[-23],""<180"",C[-23],"">1"")"
+    Range("AJ1").Select
+    ActiveCell.FormulaR1C1 = "Average trip time age 25-34"
+    Range("AJ2").Select
+    ActiveCell.FormulaR1C1 = _
+        "=AVERAGEIFS(C12,C2,""<35"",C2,"">24"",C[-24],""<180"",C[-24],"">1"")"
+    Range("AK1").Select
+    ActiveCell.FormulaR1C1 = "Average trip time age 35-45"
+    Range("AK2").Select
+    ActiveCell.FormulaR1C1 = _
+        "=AVERAGEIFS(C12,C2,""<46"",C2,"">34"",C[-25],""<180"",C[-25],"">1"")"
+    Range("AK3").Select
+    ActiveWindow.ScrollColumn = 30
+    ActiveWindow.ScrollColumn = 31
+    Range("AL1").Select
+    ActiveCell.FormulaR1C1 = "Average trip time age 46-55"
+    Range("AL2").Select
+    ActiveCell.FormulaR1C1 = _
+        "=AVERAGEIFS(C12,C2,""<56"",C2,"">45"",C[-26],""<180"",C[-26],"">1"")"
+    Range("AM1").Select
+    ActiveCell.FormulaR1C1 = "Average trip time age 56+"
+    Range("AM2").Select
+    ActiveCell.FormulaR1C1 = _
+        "=AVERAGEIFS(C[-27],C2,"">55"",C[-27],""<180"",C[-27],"">1"")"
+    Range("O2:AM2").Select
+    Range("AM2").Activate
+
+'
+End Sub
